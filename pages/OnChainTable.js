@@ -50,7 +50,7 @@ const OnChainTable = ({ onChainArray }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {onChainArray.pools.slice(0, 3).map((item) => (
+                  {onChainArray?.pools.slice(0, 3).map((item) => (
                     <tr className="bg-gray-100 border-b">
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {item.token0.symbol}/{item.token1.symbol}
