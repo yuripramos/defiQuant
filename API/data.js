@@ -1,5 +1,8 @@
-export const ONCHAIN_URL =
+export const ONCHAIN_URL_ETHEREUM =
   "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3";
+
+export const ONCHAIN_URL_POLYGON =
+  "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon";
 
 export const QUANT_URL = `https://api.taapi.io/bulk`;
 

@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Select, Option, Button } from "@material-tailwind/react";
-import { ONCHAIN_URL, QUANT_URL, query } from "../API/data";
+import { ONCHAIN_URL_POLYGON, QUANT_URL, query } from "../API/data";
 import QuantTable from "./QuantTable";
 import OnChainTable from "./OnChainTable";
 
@@ -49,12 +49,10 @@ const Dashboard = () => {
   const fetchData = async () => {
     const {
       data: { data },
-    } = await axios.post(ONCHAIN_URL, { query: query });
+    } = await axios.post(ONCHAIN_URL_POLYGON, { query: query });
 
     setQueryResult(data);
   };
-
-  console.log("agora vem", quantResult);
 
   return (
     <div className="relative flex items-center justify-between w-[1000px]">
@@ -93,8 +91,10 @@ const Dashboard = () => {
             label="Selecione a rede desejada"
             onChange={(e) => setChain(e)}
           >
-            <Option value="ETH">ETH</Option>
-            <Option value="ETH">ETH</Option>
+            <Option value="matic">Polygon</Option>
+            <Option value="ETH" disabled>
+              ETH
+            </Option>
           </Select>
         </div>
         <div className="w-72 my-2.5">
