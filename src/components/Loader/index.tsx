@@ -80,9 +80,7 @@ const AnimatedImg = styled.div`
 export const LocalLoader = ({ fill }: { fill: boolean }) => {
   return (
     <Wrapper fill={fill ? 1 : 0}>
-      <AnimatedImg>
-        <img src={UpoolLoad} alt="loading-icon" />
-      </AnimatedImg>
+      <AnimatedImg>Carregando...</AnimatedImg>
     </Wrapper>
   )
 }

@@ -163,7 +163,7 @@ export default function Header() {
           Arbitrum Pools
         </StyledNavLink>
       </HeaderLinks>
-      <a href="https://simula.orangehat.wtf" target="_blank" rel="noreferrer">
+      <a href="https://defi-quant-pool-simulator.vercel.app" target="_blank" rel="noreferrer">
         <DangerButton>
           <span>Simular Pool</span>
         </DangerButton>
