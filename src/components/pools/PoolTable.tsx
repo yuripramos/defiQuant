@@ -10,7 +10,7 @@ import { formatDollarAmount } from 'utils/numbers'
 import { PoolData } from 'state/pools/reducer'
 import DoubleCurrencyLogo from 'components/DoubleLogo'
 import { feeTierPercent } from 'utils'
-import { Label, ClickableText } from 'components/Text'
+import { Label, ClickableText, Title } from 'components/Text'
 import { PageButtons, Arrow, Break } from 'components/shared'
 import { POOL_HIDE } from '../../constants/index'
 import useTheme from 'hooks/useTheme'
@@ -212,7 +212,7 @@ export default function PoolTable({ poolDatas, maxItems = MAX_ITEMS }: { poolDat
 
   return (
     <Suspense fallback={null}>
-      <Label fontWeight={400}>Pools da rede {activeNetwork.name}</Label>
+      <Title>Pools da rede {activeNetwork.name}</Title>
       {loading ? (
         <LocalLoader fill={true} />
       ) : (

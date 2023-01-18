@@ -6,16 +6,20 @@ import Row, { RowFixed } from '../Row'
 import { networkPrefix } from 'utils/networkPrefix'
 import { ArbitrumNetworkInfo, EthereumNetworkInfo, PolygonNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
 import { DangerButton } from '../Button'
+import DefiQuantLogo from '../../assets/svg/DEFI_quant_logo.svg'
 
 const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
   align-items: center;
   padding: 15px 30px;
   background: rgb(0, 0, 0, 0.9);
   position: absolute;
   width: 100vw;
   top: 0;
+  height: 100px;
   z-index: 9999;
 `
 
@@ -132,7 +136,7 @@ export const StyledMenuButton = styled.button`
 export default function Header() {
   return (
     <NavbarContainer>
-      <h3>DeFi Quant</h3>
+      <img src={DefiQuantLogo} alt="logo" />
       <HeaderLinks>
         <StyledNavLink
           id={`stake-nav-link`}

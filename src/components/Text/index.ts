@@ -5,12 +5,22 @@ import { TYPE } from 'theme'
 export const Label = styled(TYPE.label)<{ end?: number }>`
   display: flex;
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
   justify-content: ${({ end }) => (end ? 'flex-end' : 'flex-start')};
   align-items: center;
   font-variant-numeric: tabular-nums;
   @media screen and (max-width: 640px) {
     font-size: 14px;
+  }
+`
+
+export const Title = styled.span`
+  font-size: 24px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  @media screen and (max-width: 640px) {
+    /* font-size: 14px; */
   }
 `
 

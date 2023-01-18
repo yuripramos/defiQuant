@@ -35,6 +35,7 @@ const HeaderWrapper = styled.div`
 const BodyWrapper = styled.div<{ warningActive?: boolean }>`
   display: flex;
   flex-direction: column;
+  font-family: 'Roboto', sans-serif;
   width: 100%;
   padding-top: 40px;
   margin-top: ${({ warningActive }) => (warningActive ? '140px' : '100px')};
