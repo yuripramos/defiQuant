@@ -22,6 +22,8 @@ const AppWrapper = styled.div`
   align-items: center;
   overflow-x: hidden;
   min-height: 100vh;
+  background: rgb(4, 50, 3);
+  background: linear-gradient(0deg, rgb(4 18 4) 0%, rgb(0 0 54) 100%, rgb(0 0 0) 100%);
 `
 
 const HeaderWrapper = styled.div`

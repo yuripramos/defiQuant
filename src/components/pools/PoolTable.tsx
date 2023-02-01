@@ -17,7 +17,6 @@ import useTheme from 'hooks/useTheme'
 import { networkPrefix } from 'utils/networkPrefix'
 import { useActiveNetworkVersion } from 'state/application/hooks'
 import ReactTooltip from 'react-tooltip'
-import { ButtonPrimary } from 'components/Button'
 import { getMultiplier } from 'utils/getMultiplier'
 
 const Wrapper = styled(DarkGreyCard)`
@@ -27,7 +26,9 @@ const Wrapper = styled(DarkGreyCard)`
 const ResponsiveGrid = styled.div`
   display: grid;
   grid-gap: 1em;
+  padding-left: 16px;
   align-items: center;
+  height: 70px;
 
   grid-template-columns: 5px 0.6fr repeat(6, 0.3fr);
 
@@ -55,9 +56,10 @@ const ResponsiveGrid = styled.div`
 
 const LinkWrapper = styled(Link)`
   text-decoration: none;
+
   :hover {
     cursor: pointer;
-    opacity: 0.7;
+    background: #202020;
   }
 `
 
@@ -212,13 +214,13 @@ export default function PoolTable({ poolDatas, maxItems = MAX_ITEMS }: { poolDat
 
   return (
     <Suspense fallback={null}>
-      <Title>Pools da rede {activeNetwork.name}</Title>
       {loading ? (
         <LocalLoader fill={true} />
       ) : (
         <Wrapper>
+          <Title>Pools da rede {activeNetwork.name}</Title>
           {sortedPools.length > 0 ? (
-            <AutoColumn gap="16px">
+            <AutoColumn>
               <ResponsiveGrid>
                 <Label color={theme.text2} fontWeight={400}>
                   #
@@ -256,7 +258,6 @@ export default function PoolTable({ poolDatas, maxItems = MAX_ITEMS }: { poolDat
               <Break />
               {sortedPools.map((poolData, i) => {
                 if (poolData) {
-                  //console.log('poolDayData ' + JSON.stringify(poolData.poolDayData))
                   return (
                     <React.Fragment key={i}>
                       <DataRow index={(page - 1) * MAX_ITEMS + i} poolData={poolData} />

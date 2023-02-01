@@ -17,6 +17,7 @@ export const Label = styled(TYPE.label)<{ end?: number }>`
 
 export const Title = styled.span`
   font-size: 24px;
+  padding-left: 16px;
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
   @media screen and (max-width: 640px) {

@@ -7,6 +7,7 @@ export const PageButtons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-top: 32px;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
 `

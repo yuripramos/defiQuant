@@ -60,6 +60,15 @@ const ResponsiveRow = styled(RowBetween)`
   `};
 `
 
+const PoolStats = styled.div`
+  padding: 16px;
+  margin: 4px;
+`
+const WrapperTitleTokensLocked = styled.div`
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+`
+
 const ToggleRow = styled(RowBetween)`
   @media screen and (max-width: 600px) {
     flex-direction: column;
@@ -158,7 +167,7 @@ export default function PoolPage({
     <PageWrapper>
       <ThemedBackground backgroundColor={backgroundColor} />
       {poolData ? (
-        <AutoColumn gap="32px">
+        <AutoColumn>
           <RowBetween>
             <AutoRow gap="4px">
               <StyledInternalLink to={networkPrefix(activeNetwork)}>
@@ -179,9 +188,9 @@ export default function PoolPage({
               </StyledExternalLink>
             </RowFixed>
           </RowBetween>
-          <ResponsiveRow align="flex-end">
+          <ResponsiveRow align="flex-end" style={{ margin: '20px 0' }}>
             <AutoColumn gap="lg">
-              <RowFixed>
+              <RowFixed style={{ margin: '10px 0' }}>
                 <DoubleCurrencyLogo address0={poolData.token0.address} address1={poolData.token1.address} size={24} />
                 <TYPE.label
                   ml="8px"
@@ -247,46 +256,54 @@ export default function PoolPage({
               <AutoColumn gap="lg">
                 <GreyCard padding="16px">
                   <AutoColumn gap="md">
-                    <TYPE.main>Total Tokens Locked</TYPE.main>
-                    <RowBetween>
-                      <RowFixed>
-                        <CurrencyLogo address={poolData.token0.address} size={'20px'} />
-                        <TYPE.label fontSize="14px" ml="8px">
-                          {poolData.token0.symbol}
-                        </TYPE.label>
-                      </RowFixed>
-                      <TYPE.label fontSize="14px">{formatAmount(poolData.tvlToken0)}</TYPE.label>
-                    </RowBetween>
-                    <RowBetween>
-                      <RowFixed>
-                        <CurrencyLogo address={poolData.token1.address} size={'20px'} />
-                        <TYPE.label fontSize="14px" ml="8px">
-                          {poolData.token1.symbol}
-                        </TYPE.label>
-                      </RowFixed>
-                      <TYPE.label fontSize="14px">{formatAmount(poolData.tvlToken1)}</TYPE.label>
-                    </RowBetween>
+                    <WrapperTitleTokensLocked>
+                      <TYPE.main>Total Tokens Locked</TYPE.main>
+                      <RowBetween>
+                        <RowFixed>
+                          <CurrencyLogo address={poolData.token0.address} size={'20px'} />
+                          <TYPE.label fontSize="14px" ml="8px">
+                            {poolData.token0.symbol}
+                          </TYPE.label>
+                        </RowFixed>
+                        <TYPE.label fontSize="14px">{formatAmount(poolData.tvlToken0)}</TYPE.label>
+                      </RowBetween>
+                      <RowBetween>
+                        <RowFixed>
+                          <CurrencyLogo address={poolData.token1.address} size={'20px'} />
+                          <TYPE.label fontSize="14px" ml="8px">
+                            {poolData.token1.symbol}
+                          </TYPE.label>
+                        </RowFixed>
+                        <TYPE.label fontSize="14px">{formatAmount(poolData.tvlToken1)}</TYPE.label>
+                      </RowBetween>
+                    </WrapperTitleTokensLocked>
                   </AutoColumn>
                 </GreyCard>
                 <AutoColumn gap="4px">
-                  <TYPE.main fontWeight={400}>TVL</TYPE.main>
-                  <TYPE.label fontSize="24px">{formatDollarAmount(poolData.tvlUSD)}</TYPE.label>
-                  <Percent value={poolData.tvlUSDChange} />
+                  <PoolStats>
+                    <TYPE.main fontWeight={400}>TVL</TYPE.main>
+                    <TYPE.label fontSize="24px">{formatDollarAmount(poolData.tvlUSD)}</TYPE.label>
+                    <Percent value={poolData.tvlUSDChange} />
+                  </PoolStats>
                 </AutoColumn>
                 <AutoColumn gap="4px">
-                  <TYPE.main fontWeight={400}>Volume 24h</TYPE.main>
-                  <TYPE.label fontSize="24px">{formatDollarAmount(poolData.volumeUSD)}</TYPE.label>
-                  <Percent value={poolData.volumeUSDChange} />
+                  <PoolStats>
+                    <TYPE.main fontWeight={400}>Volume 24h</TYPE.main>
+                    <TYPE.label fontSize="24px">{formatDollarAmount(poolData.volumeUSD)}</TYPE.label>
+                    <Percent value={poolData.volumeUSDChange} />
+                  </PoolStats>
                 </AutoColumn>
                 <AutoColumn gap="4px">
-                  <TYPE.main fontWeight={400}>24h Fees</TYPE.main>
-                  <TYPE.label fontSize="24px">
-                    {formatDollarAmount(poolData.volumeUSD * (poolData.feeTier / 1000000))}
-                  </TYPE.label>
+                  <PoolStats>
+                    <TYPE.main fontWeight={400}>24h Fees</TYPE.main>
+                    <TYPE.label fontSize="24px">
+                      {formatDollarAmount(poolData.volumeUSD * (poolData.feeTier / 1000000))}
+                    </TYPE.label>
+                  </PoolStats>
                 </AutoColumn>
               </AutoColumn>
             </DarkGreyCard>
-            <DarkGreyCard>
+            <DarkGreyCard style={{ padding: '8px' }}>
               <ToggleRow align="flex-start">
                 <AutoColumn>
                   <TYPE.label fontSize="24px" height="30px">
@@ -397,7 +414,9 @@ export default function PoolPage({
               )}
             </DarkGreyCard>
           </ContentLayout>
-          <TYPE.main fontSize="24px">Transactions</TYPE.main>
+          <TYPE.main fontSize="24px" style={{ margin: '20px 0' }}>
+            Transactions
+          </TYPE.main>
           <DarkGreyCard>
             {transactions ? <TransactionTable transactions={transactions} /> : <LocalLoader fill={false} />}
           </DarkGreyCard>

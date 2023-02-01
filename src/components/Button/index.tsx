@@ -331,16 +331,11 @@ const DonateButtonAnimation = keyframes`
 `
 
 export const DangerButton = styled(ButtonStyle)`
-  padding: 4px;
-
-  & > span {
-    display: inline-block;
-    border-radius: 8px;
-    border: 2px solid #000;
-    color: black;
-    padding: 4px 8px;
-    background: white;
-  }
+  color: #fff;
+  padding: 6px 34px;
+  height: 56px;
+  background: #1662d2;
+  border-radius: 16px;
 `
 
 export function ButtonConfirmed({

@@ -96,7 +96,7 @@ const DataRow = ({ transaction, color }: { transaction: Transaction; color?: str
   const theme = useTheme()
 
   return (
-    <ResponsiveGrid>
+    <ResponsiveGrid style={{ padding: '8px' }}>
       <ExternalLink href={getEtherscanLink(1, transaction.hash, 'transaction', activeNetwork)}>
         <Label color={color ?? theme.blue1} fontWeight={400}>
           {transaction.type === TransactionType.MINT
@@ -204,7 +204,7 @@ export default function TransactionTable({
     <Wrapper>
       <AutoColumn gap="16px">
         <ResponsiveGrid>
-          <RowFixed>
+          <RowFixed style={{ padding: '8px' }}>
             <SortText
               onClick={() => {
                 setTxFilter(undefined)
