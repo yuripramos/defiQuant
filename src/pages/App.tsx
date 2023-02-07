@@ -13,6 +13,7 @@ import { LocalLoader } from 'components/Loader'
 import { ExternalLink, TYPE } from 'theme'
 import { useActiveNetworkVersion, useSubgraphStatus } from 'state/application/hooks'
 import { DarkGreyCard } from 'components/Card'
+import Footer from 'components/Footer'
 import { SUPPORTED_NETWORK_VERSIONS, EthereumNetworkInfo, OptimismNetworkInfo } from 'constants/networks'
 import './styles.css'
 
@@ -166,6 +167,7 @@ export default function App() {
               <MargemTop />
             </BodyWrapper>
           )}
+          <Footer />
         </AppWrapper>
       )}
     </Suspense>
